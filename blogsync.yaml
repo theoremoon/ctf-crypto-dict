@@ -1,0 +1,6 @@
+furutsuki.hatenablog.com:
+  username: Furutsuki
+  password: ${APIKEY}
+default:
+  local_root: ./
+  omit_domain: true
