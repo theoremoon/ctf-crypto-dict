@@ -14,8 +14,8 @@ jobs:
       - uses: actions/setup-go@v3
       - run: go install github.com/x-motemen/blogsync@latest
 
-      - run: envsubst < blogsync.yaml | tee blogsync.yaml > /dev/null
+      - run: |
+          export PATH=$PATH:$(go env GOPATH)/bin
+          blogsync push ./entry/2021/03/16/095021.md
         env:
-          APIKEY: ${{ secrets.APIKEY }}
-          
-      - run: blogsync push ./entry/2021/03/16/095021.md
+          BLOGSYNC_PASSWORD: ${{ secrets.APIKEY }}
